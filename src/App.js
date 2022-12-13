@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
+
+import Board from './components/Board/Board';
+import Message from './components/Messages/Message';
+
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="header">
+        <h1 className="title">xoxo</h1>
+        <p className="message"><Message /></p>
+      </div>
+      <main className="main">
+        <Board />
+      </main>
     </div>
   );
-}
+};
 
 export default App;
