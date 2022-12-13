@@ -1,0 +1,11 @@
+.square {
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  border: .5px solid bisque;
+  height: 120px;
+  width: 120px;
+  color:indianred;
+  
+}

@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  font-family: neon glow;
+  font-size: 2em;
+  font-weight: 300;
+  overflow:hidden;
+
+}
+
+.App {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+
+  }
+  
+  .main { 
+    grid-area: 1 / 1 / 6 / 6; 
+    max-width:80%;
+    margin: auto;
+    height: auto;
+  }
+  
+
+  .header { 
+    grid-area: 1 / 1 / 2 / 6;
+    color:bisque;
+    text-align: center;
+
+  }
+
+  .message {
+    font-size: .75em;
+    text-align: center;
+  }
+  
+  .footer { grid-area: 5 / 1 / 6 / 6; }
+  

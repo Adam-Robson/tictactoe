@@ -8,9 +8,13 @@ import './App.css';
 const App = () => {
   return (
     <div className="App">
-      <h1>xoxo</h1>
-      <Message />
-      <Board />
+      <div className="header">
+        <h1 className="title">xoxo</h1>
+        <p className="message"><Message /></p>
+      </div>
+      <main className="main">
+        <Board />
+      </main>
     </div>
   );
 };

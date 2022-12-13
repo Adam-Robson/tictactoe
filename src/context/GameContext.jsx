@@ -6,7 +6,7 @@ const GameContext = createContext();
 
 const GameContextProvider = ({ children }) => {
   const newGame = new Array(9)
-    .fill()
+    .fill('')
     .map((val, i) => ({ position: i, content: '' }));
 
   const [board, setBoard] = useState(newGame);

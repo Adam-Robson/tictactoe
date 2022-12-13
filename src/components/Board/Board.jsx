@@ -16,7 +16,7 @@ const Board = () => {
         ))}
       </div>
       {
-        !active && <button onClick={handleReset}>reset</button>}
+        !active && <button id="reset" onClick={handleReset}>RESET</button>}
     </>
   );
 };
