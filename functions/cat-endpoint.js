@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
 const fetch = require('node-fetch');
 require('dotenv').config();
 
