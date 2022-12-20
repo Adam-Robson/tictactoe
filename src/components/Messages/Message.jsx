@@ -1,15 +1,12 @@
 import React from 'react';
-
-import { useGameContext } from '../../context/GameContext';
-
-import './Message.css';
+import { useGameContext } from '../../context/useGameContext';
 
 const Message = () => {
   const { message } = useGameContext();
   return (
-    <div className="message">
-      <p>{ message }</p>
-    </div>
+    <>
+      <div className="message">{ message }</div>
+    </>
   );
 };
 

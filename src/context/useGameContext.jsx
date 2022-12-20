@@ -25,7 +25,7 @@ const GameContextProvider = ({ children }) => {
     setMessage(player === 'x' ? 'your turn, o' : 'your turn, x');
   };
 
-  const checkWinner = () => {
+  function checkWinner() {
     if (
       board[0].content !== '' &&
       board[0].content === board[1].content &&
@@ -77,7 +77,8 @@ const GameContextProvider = ({ children }) => {
     } else {
       return false;
     }
-  };
+  }
+
 
   const isCatsGame = () => {
     return board.filter((square) => square.content === '').length === 0;
@@ -87,7 +88,7 @@ const GameContextProvider = ({ children }) => {
     if (!active) return;
     const winner = checkWinner();
     if (winner) {
-      setMessage(`you win, ${winner}! 🏆`);
+      setMessage(`you win, ${winner}!`);
       setActive(false);
     } else if (isCatsGame()) {
       setMessage('Cats Game!');
