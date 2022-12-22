@@ -1,24 +1,22 @@
 import { useGameContext } from '../../context/useGameContext';
 import Square from '../Square/Square';
-
 import './Board.css';
 
-const Board = () => {
+export default function Board() {
   const { board, resetGame, active } = useGameContext();
+
   const handleReset = () => {
     resetGame();
   };
+
   return (
     <>
-      <div className="board">{
-        board.map(({ position, content }) => (
-          <Square key={position} position={position} content={content} />
+      <div className="board">
+        {board.map(({ position, content }) => (
+          <Square key={ position } position={ position } content={ content } />
         ))}
       </div>
-      {
-        !active && <button id="reset" onClick={handleReset}>RESET</button>}
+      {!active && <button onClick={handleReset}>RESET</button>}
     </>
   );
-};
-
-export default Board;
+}

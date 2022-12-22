@@ -1,7 +1,5 @@
 import React, { useState, useContext, createContext } from 'react';
 
-
-
 const GameContext = createContext();
 
 const GameContextProvider = ({ children }) => {
@@ -18,8 +16,8 @@ const GameContextProvider = ({ children }) => {
     if (!active) return;
     if (board[n].content !== '') return;
 
-    setBoard((prev) =>
-      prev.map((square) => (square.position === n ? { position: n, content: setPlayer } : square))
+    setBoard((i) =>
+      i.map((square) => (square.position === n ? { position: n, content: setPlayer } : square))
     );
     setPlayer(player === 'x' ? 'o' : 'x');
     setMessage(player === 'x' ? 'your turn, o' : 'your turn, x');
@@ -28,50 +26,66 @@ const GameContextProvider = ({ children }) => {
   function checkWinner() {
     if (
       board[0].content !== '' &&
-      board[0].content === board[1].content &&
-      board[1].content === board[2].content
+      board[0].content === 
+      board[1].content &&
+      board[1].content === 
+      board[2].content
     ) {
       return board[2].content;
     } else if (
       board[3].content !== '' &&
-      board[3].content === board[4].content &&
-      board[4].content === board[5].content
+      board[3].content === 
+      board[4].content &&
+      board[4].content === 
+      board[5].content
     ) {
       return board[5].content;
     } else if (
       board[6].content !== '' &&
-      board[6].content === board[7].content &&
-      board[7].content === board[8].content
+      board[6].content === 
+      board[7].content &&
+      board[7].content === 
+      board[8].content
     ) {
       return board[8].content;
     } else if (
       board[0].content !== '' &&
-      board[0].content === board[3].content &&
-      board[3].content === board[6].content
+      board[0].content === 
+      board[3].content &&
+      board[3].content === 
+      board[6].content
     ) {
       return board[6].content;
     } else if (
       board[1].content !== '' &&
-      board[1].content === board[4].content &&
-      board[4].content === board[7].content
+      board[1].content === 
+      board[4].content &&
+      board[4].content === 
+      board[7].content
     ) {
       return board[7].content;
     } else if (
       board[2].content !== '' &&
-      board[2].content === board[5].content &&
-      board[5].content === board[8].content
+      board[2].content === 
+      board[5].content &&
+      board[5].content === 
+      board[8].content
     ) {
       return board[8].content;
     } else if (
       board[0].content !== '' &&
-      board[0].content === board[4].content &&
-      board[4].content === board[8].content
+      board[0].content === 
+      board[4].content &&
+      board[4].content === 
+      board[8].content
     ) {
       return board[8].content;
     } else if (
       board[2].content !== '' &&
-      board[2].content === board[4].content &&
-      board[4].content === board[6].content
+      board[2].content === 
+      board[4].content &&
+      board[4].content === 
+      board[6].content
     ) {
       return board[6].content;
     } else {
@@ -79,8 +93,7 @@ const GameContextProvider = ({ children }) => {
     }
   }
 
-
-  const isCatsGame = () => {
+  const catsGame = () => {
     return board.filter((square) => square.content === '').length === 0;
   };
 
@@ -88,10 +101,10 @@ const GameContextProvider = ({ children }) => {
     if (!active) return;
     const winner = checkWinner();
     if (winner) {
-      setMessage(`you win, ${winner}!`);
+      setMessage(`you win, ${winner}`);
       setActive(false);
-    } else if (isCatsGame()) {
-      setMessage('Cats Game!');
+    } else if (catsGame()) {
+      setMessage('cats game!');
       setActive(false);
     }
   };

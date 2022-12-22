@@ -1,13 +1,10 @@
-import React from 'react';
 import { useGameContext } from '../../context/useGameContext';
 
-const Message = () => {
+export default function Message() {
   const { message } = useGameContext();
   return (
-    <>
-      <div className="message">{ message }</div>
-    </>
+    <div className="message">
+      <p>{message}</p>
+    </div>
   );
-};
-
-export default Message;
+}
