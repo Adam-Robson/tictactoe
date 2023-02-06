@@ -72,7 +72,7 @@ const GameProvider = ({ children }) => {
     return context;
   }
 
-  export { GameProvider, useGameContext };
+  export { GameProvider, useGameContext, GameContextProvider};
     
 
 
