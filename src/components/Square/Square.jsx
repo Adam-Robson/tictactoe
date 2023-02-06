@@ -4,10 +4,17 @@ import { useGameContext } from '../../context/GameContext';
 
 import './Square.css';
 
-const Square = ({ position, content }) => {
-  const { handleClick } = useGameContext();
+const Square = ({ i, sign }) => {
+  
+
+  const { yourMove } = useGameContext;
+
+  function handleTurn() {
+    yourMove(i);
+  };
+
   return (
-    <div onClick={() => handleClick(position)} id={position} className="square">{ content }</div>
+    <div onClick={ handleTurn } className="square">{ sign }</div>
   );
 };
 

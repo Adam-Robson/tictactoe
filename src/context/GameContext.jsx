@@ -1,122 +1,84 @@
-import React, { useState, useContext, createContext } from 'react';
-
-
+import { createContext, useContext, useState} from 'react';
 
 const GameContext = createContext();
 
-const GameContextProvider = ({ children }) => {
-  const newGame = new Array(9)
-    .fill('')
-    .map((val, i) => ({ position: i, content: '' }));
+const GameProvider = ({ children }) => {
 
-  const [board, setBoard] = useState(newGame);
-  const [player, setPlayer] = useState('x');
-  const [message, setMessage] = useState('your turn, x');
-  const [active, setActive] = useState(true);
+  const [player, setPlayer] = useState('xd');
+  const [live, setLive] = useState(true);
+  const [message, setMessage] = useState('your move: ' + player);
+  const [board, setBoard] = useState(new Array(9).fill(''));
+  
 
-  const handleClick = (n) => {
-    if (!active) return;
-    if (board[n].content !== '') return;
-
-    setBoard((prev) =>
-      prev.map((square) => (square.position === n ? { position: n, content: setPlayer } : square))
-    );
-    setPlayer(player === 'x' ? 'o' : 'x');
-    setMessage(player === 'x' ? 'your turn, o' : 'your turn, x');
-  };
-
-  const checkWinner = () => {
-    if (
-      board[0].content !== '' &&
-      board[0].content === board[1].content &&
-      board[1].content === board[2].content
-    ) {
-      return board[2].content;
-    } else if (
-      board[3].content !== '' &&
-      board[3].content === board[4].content &&
-      board[4].content === board[5].content
-    ) {
-      return board[5].content;
-    } else if (
-      board[6].content !== '' &&
-      board[6].content === board[7].content &&
-      board[7].content === board[8].content
-    ) {
-      return board[8].content;
-    } else if (
-      board[0].content !== '' &&
-      board[0].content === board[3].content &&
-      board[3].content === board[6].content
-    ) {
-      return board[6].content;
-    } else if (
-      board[1].content !== '' &&
-      board[1].content === board[4].content &&
-      board[4].content === board[7].content
-    ) {
-      return board[7].content;
-    } else if (
-      board[2].content !== '' &&
-      board[2].content === board[5].content &&
-      board[5].content === board[8].content
-    ) {
-      return board[8].content;
-    } else if (
-      board[0].content !== '' &&
-      board[0].content === board[4].content &&
-      board[4].content === board[8].content
-    ) {
-      return board[8].content;
-    } else if (
-      board[2].content !== '' &&
-      board[2].content === board[4].content &&
-      board[4].content === board[6].content
-    ) {
-      return board[6].content;
-    } else {
-      return false;
+  const yourMove = (i) => {
+    if (board[i] === '' && live) {
+      setBoard(state => state.map((x, y) => y === i ? player : x));
+      setPlayer(state => state === 'x' ? 'o' : 'x');
     }
-  };
-
-  const isCatsGame = () => {
-    return board.filter((square) => square.content === '').length === 0;
-  };
-
-  const checkGame = () => {
-    if (!active) return;
-    const winner = checkWinner();
-    if (winner) {
-      setMessage(`you win, ${winner}! 🏆`);
-      setActive(false);
-    } else if (isCatsGame()) {
-      setMessage('Cats Game!');
-      setActive(false);
-    }
-  };
-
-  checkGame();
-
-  const resetGame = () => {
-    setBoard(newGame);
-    setActive(true);
-    setMessage('your turn, x');
-    setPlayer('x');
-  };
-
-  return (
-    <GameContext.Provider value={{ board, player, message, active, handleClick, resetGame }}>
-      {children}
-    </GameContext.Provider>
-  );
-};
-
-const useGameContext = () => {
-  const context = useContext(GameContext);
-  if (context === undefined) {
-    throw new Error('useGameContext must be used within a GameContextProvider');
   }
-  return context;
-};
 
-export { useGameContext, GameContextProvider };
+  const gameOver = [
+    [0, 1, 2],
+    [0, 4, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [2, 4, 6],
+    [3, 4, 5],
+    [6, 7, 8]
+  ];
+
+  const checkWin = () => {
+   if (!live) return null;
+    let allSquares = false;
+   if (!board.includes('')) {
+    allSquares === true
+   }
+  }
+
+   let winner = null;
+
+   for (let win of gameOver) {
+    let row = board.filter((square, i) => win.includes(i));
+    if (row.includes('')) continue;
+
+    winner = row.reduce((x, y) => {
+      if (x === y) {
+        return x}
+      });
+
+    if (winner) {
+      setLive === false;
+      setMessage(`${winner} won`);
+    } else if (allSquares) {
+      setLive(false);
+      setMessage('cats game')
+    }
+  }
+    checkWin();
+
+    const reset = () => {
+      setBoard(newArray(9).fill(''));
+      setLive(true);
+      setPlayer('x');
+    }
+
+    return <GameContext.Provider value={ { player, setPlayer, board, setBoard, message, setMessage, yourMove, reset, checkWin } }>{ children }</GameContext.Provider>;
+
+  }
+
+  const useGameContext = () => {
+    const context = useContext(GameContext);
+    return context;
+  }
+
+  export { GameProvider, useGameContext };
+    
+
+
+
+    
+
+
+
+   
