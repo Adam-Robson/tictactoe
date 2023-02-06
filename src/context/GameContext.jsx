@@ -2,7 +2,7 @@ import { createContext, useContext, useState} from 'react';
 
 const GameContext = createContext();
 
-const GameProvider = ({ children }) => {
+const GameContextProvider = ({ children }) => {
 
   const [player, setPlayer] = useState('xd');
   const [live, setLive] = useState(true);
@@ -72,7 +72,7 @@ const GameProvider = ({ children }) => {
     return context;
   }
 
-  export { GameProvider, useGameContext, GameContextProvider};
+  export { useGameContext, GameContextProvider};
     
 
 
