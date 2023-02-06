@@ -4,19 +4,19 @@ import Square from '../Square/Square';
 import './Board.css';
 
 const Board = () => {
-  const { board, resetGame, active } = useGameContext();
-  const handleReset = () => {
-    resetGame();
-  };
+
+  const { board, reset, live } = useGameContext();
+
+  const handleReset = () => reset();
+
   return (
     <>
       <div className="board">{
-        board.map(({ position, content }) => (
-          <Square key={position} position={position} content={content} />
+        board.map(({ i, sign }) => (
+          <Square key={i} position={i} content={sign} />
         ))}
       </div>
-      {
-        !active && <button id="reset" onClick={handleReset}>RESET</button>}
+      { !live && <button id="reset" onClick={handleReset}>RESET</button> }
     </>
   );
 };
