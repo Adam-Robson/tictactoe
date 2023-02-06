@@ -1,4 +1,4 @@
-import { createContext, useContext, useState} from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const GameContext = createContext();
 
@@ -15,7 +15,7 @@ const GameContextProvider = ({ children }) => {
       setBoard(state => state.map((x, y) => y === i ? player : x));
       setPlayer(state => state === 'x' ? 'o' : 'x');
     }
-  }
+  };
 
   const gameOver = [
     [0, 1, 2],
@@ -29,50 +29,52 @@ const GameContextProvider = ({ children }) => {
   ];
 
   const checkWin = () => {
-   if (!live) return null;
+    if (!live) return null;
     let allSquares = false;
-   if (!board.includes('')) {
-    allSquares === true
-   }
-  }
+    if (!board.includes('')) {
+      allSquares === true;
+    }
+  };
 
-   let winner = null;
+  let winner = null;
 
-   for (let win of gameOver) {
+  for (let win of gameOver) {
+    let allSquares;
     let row = board.filter((square, i) => win.includes(i));
     if (row.includes('')) continue;
 
     winner = row.reduce((x, y) => {
       if (x === y) {
-        return x}
-      });
+        return x; 
+      }
+    });
 
     if (winner) {
       setLive === false;
       setMessage(`${winner} won`);
     } else if (allSquares) {
       setLive(false);
-      setMessage('cats game')
+      setMessage('cats game');
     }
   }
-    checkWin();
+  checkWin();
 
-    const reset = () => {
-      setBoard(newArray(9).fill(''));
-      setLive(true);
-      setPlayer('x');
-    }
+  const reset = () => {
+    setBoard(new Array(9).fill(''));
+    setLive(true);
+    setPlayer('x');
+  };
 
-    return <GameContext.Provider value={ { player, setPlayer, board, setBoard, message, setMessage, yourMove, reset, checkWin } }>{ children }</GameContext.Provider>;
+  return <GameContext.Provider value={ { player, setPlayer, board, setBoard, message, setMessage, yourMove, reset, checkWin } }>{ children }</GameContext.Provider>;
 
-  }
+};
 
-  const useGameContext = () => {
-    const context = useContext(GameContext);
-    return context;
-  }
+const useGameContext = () => {
+  const context = useContext(GameContext);
+  return context;
+};
 
-  export { useGameContext, GameContextProvider};
+export { useGameContext, GameContextProvider };
     
 
 
