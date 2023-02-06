@@ -11,7 +11,7 @@ const Square = ({ i, sign }) => {
 
   function handleTurn() {
     yourMove(i);
-  };
+  }
 
   return (
     <div onClick={ handleTurn } className="square">{ sign }</div>

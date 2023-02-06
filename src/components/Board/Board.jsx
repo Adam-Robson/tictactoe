@@ -5,7 +5,7 @@ import './Board.css';
 
 const Board = () => {
 
-  const { board, reset } = useGameContext();
+  const { board, reset, live } = useGameContext();
 
   const handleReset = () => reset();
 
