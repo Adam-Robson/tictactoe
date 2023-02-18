@@ -1,22 +1,4 @@
 .board { 
-  grid-area: 2 / 2 / 5 / 5; 
-  display:flex;
-  flex-flow: row wrap;
-  border: 1px solid bisque;
-  height:420px;
-  width:420px;
-  justify-content: center;
-  align-items: center;
-  color:indianred;
-
-}
-
-#reset {
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  top: 40px;
-  width: 60px;
-  height: 23px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }

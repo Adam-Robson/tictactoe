@@ -1,21 +1,13 @@
 import React from 'react';
 
-import { useGameContext } from '../../context/GameContext';
-
 import './Square.css';
 
-const Square = ({ i, sign }) => {
-  
-
-  const { yourMove } = useGameContext;
-
-  function handleTurn() {
-    yourMove(i);
-  }
-
+export default function Square({ value, onClick }) {
   return (
-    <div onClick={ handleTurn } className="square">{ sign }</div>
+    <>
+      <section className="square">
+        <button className="square" onClick={ onClick }>{ value }</button>
+      </section>
+    </>
   );
-};
-
-export default Square;
+}

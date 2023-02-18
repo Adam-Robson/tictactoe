@@ -1,24 +1,19 @@
-import { useGameContext } from '../../context/GameContext';
+import React from 'react';
 import Square from '../Square/Square';
-
 import './Board.css';
 
-const Board = () => {
-
-  const { board, reset, live } = useGameContext();
-
-  const handleReset = () => reset();
-
+export default function Board({ squares, onClick }) {
   return (
     <>
-      <div className="board">{
-        board.map(({ i, sign }) => (
-          <Square key={i} position={i} content={sign} />
-        ))}
-      </div>
-      { !live && <button id="reset" onClick={handleReset}>RESET</button> }
+      <section className="board">
+        <div className="board">
+          { squares.map((square, i) => (
+            <Square key={ i } value={ square } onClick={ () => onClick(i) } />
+          )) 
+          }
+        </div>
+      </section>
     </>
   );
-};
+}
 
-export default Board;

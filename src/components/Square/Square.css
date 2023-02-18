@@ -1,11 +1,9 @@
 .square {
-  display:flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  border: .5px solid bisque;
-  height: 120px;
-  width: 120px;
+  font-size: 4rem;
+  height: 12rem;
+  width: 12rem;
+  background-color: bisque;
   color:indianred;
+  border: 1px indianred solid;
   
 }
