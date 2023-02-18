@@ -15,9 +15,7 @@ export default function Game() {
     const square = history.slice(0, step + 1);
     const current = square[step];
     const squares = [...current];
-    // If user click an occupied square or if game is won, return
     if (winner || squares[i]) return;
-    // Put an X or an O in the clicked square
     squares[i] = player ? 'x' : 'o';
     setHistory([...square, squares]);
     setStep(square.length);
