@@ -1,5 +1,13 @@
-.message {
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.message, h3 {
   display: flex;
   flex-direction: row wrap;
-  
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: var(--charcoal);
+  padding: 1.5rem;
 }

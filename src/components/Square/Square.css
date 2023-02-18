@@ -1,9 +1,9 @@
 .square {
   font-size: 4rem;
-  height: 12rem;
-  width: 12rem;
-  background-color: bisque;
-  color:indianred;
-  border: 1px indianred solid;
+  height: 10rem;
+  width: 10rem;
+  background-color: var(--taupe);
+  color:var(--charcoal);
+  border: 1px var(--charcoal) solid;
   
 }

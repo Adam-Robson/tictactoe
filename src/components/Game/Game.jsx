@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useGameContext } from '../../context/GameContext';
 import Board from '../Board/Board';
 
+import './Game.css';
+
 export default function Game() {
 
   const { calculateWinner } = useGameContext();
@@ -40,11 +42,11 @@ export default function Game() {
 
   return (
     <>
-      <Board squares={ history[step] } onClick={ handleClick } />
-      <section className="message">
+      <section className="container">
         { renderFn() }
-        { winner ? `${winner} is winner, woo!` : 'your move: ' + (player ? 'x' : 'o') }
-      
+        <h3 className="message">{ winner ? `${winner} is winner, woo!` : 'your move: ' + (player ? 'x' : 'o') }</h3>
+        <Board squares={ history[step] } onClick={ handleClick } />
+
       </section>
     </>
   );

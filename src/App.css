@@ -1,3 +1,14 @@
+:root {
+
+/* CSS HSL */
+--charcoal: hsla(214, 31%, 26%, 1);
+--lavender: hsla(351, 44%, 94%, 1);
+--taupe: hsla(358, 24%, 52%, 1);
+--cadet: hsla(191, 23%, 56%, 1);
+ 
+}
+
+
 * {
   box-sizing: border-box;
   margin: 0 auto;
@@ -8,6 +19,7 @@ html,
 body {
   height: 100vh;
   width: 100vw;
+  background-color: var(--lavendar);
 }
   
 
