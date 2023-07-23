@@ -1,5 +1,5 @@
 {
-  "name": "react-base-template",
+  "name": "react-xoxo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,7 +10,6 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
-    "@supabase/supabase-js": "^1.28.5",
     "netlify-cli": "^9.4.4",
     "react-router-dom": "^5.3.0"
   },
