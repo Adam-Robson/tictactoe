@@ -1,10 +1,12 @@
 import React from 'react';
-import Game from './components/Game/Game';
-import './App.css';
+import Board from './components/Board';
+
 export default function App() {
   return (
     <>
-      <Game />
+      <section className="game">
+        <Board />
+      </section>
     </>
   );
 }

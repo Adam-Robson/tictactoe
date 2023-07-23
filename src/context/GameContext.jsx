@@ -1,40 +1,143 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const GameContext = createContext();
 
-const GameContextProvider = ({ children }) => {
+export function GameContextProvider({ children }) {
+  const newBoard = new Array(9).fill().map(
+    // eslint-disable-next-line no-unused-vars
+    (val, idx) => (
+      { idx, val: '' }
+    ));
+  const [turn, setTurn] = useState('x');
+  const [board, setBoard] = useState(newBoard);
+  const [active, setActive] = useState(true);
+  const [message, setMessage] = useState(`it is x's turn!`);
 
+  function handleClick(i) {
+    if (!active) return;
+    if (board[i].val !== '') return;
 
-  function calculateWinner(squares) {
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6]
-    ];
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return squares[a];
-      }
-    }
-    return null;
+    setBoard(x =>
+      x.map(
+        space => space.idx === i ?
+          { idx: i, val: turn } : space));
+    
+    setTurn(turn === 'x' ? 'o' : 'x');
+    setMessage(turn === 'x' ? 'it is o\'s turn!' : 'it is x\'s turn!');
   }
 
+  function checkWinner() {
+    if (
+      board[0].val !== '' &&
+      board[0].val ===
+      board[1].val &&
+      board[1].val ===
+      board[2].val
+    ) {
+      return board[2].val;
+    } else if (
+      board[3].val !== '' &&
+      board[3].val ===
+      board[4].val &&
+      board[4].val ===
+      board[5].val
+    ) {
+      return board[5].val;
+    } else if (
+      board[6].val !== '' &&
+      board[6].val === 
+      board[7].val &&
+      board[7].val === 
+      board[8].val
+    ) {
+      return board[8].val;
+    } else if (
+      board[0].val !== '' &&
+      board[0].val === 
+      board[3].val &&
+      board[3].val === 
+      board[6].val
+    ) {
+      return board[6].val;
+    } else if (
+      board[1].val !== '' &&
+      board[1].val === 
+      board[4].val &&
+      board[4].val === 
+      board[7].val
+    ) {
+      return board[7].val;
+    } else if (
+      board[2].val !== '' &&
+      board[2].val === 
+      board[5].val &&
+      board[5].val === 
+      board[8].val
+    ) {
+      return board[8].val;
+    } else if (
+      board[0].val !== '' &&
+      board[0].val === 
+      board[4].val &&
+      board[4].val === 
+      board[8].val
+    ) {
+      return board[8].val;
+    } else if (
+      board[2].val !== '' &&
+      board[2].val === 
+      board[4].val &&
+      board[4].val === 
+      board[6].val
+    ) {
+      return board[6].val;
+    } else {
+      return false;
+    }
+  }
 
+  function cat() {
+    return board.filter(square => square.val === '').length === 0;
+  }
 
-  return <GameContext.Provider value={ { calculateWinner } }>{ children }</GameContext.Provider>;
+  function checkGame() {
+    if (!active) return;
+    const winner = checkWinner();
+    if (winner) {
+      setMessage(`${winner} wins! - reset ⇨ `);
+      setActive(false);
+    } else if (cat()) {
+      setMessage('this was a cat\'s game!');
+      setActive(false);
+    }
+  }
+  checkGame();
 
-};
+  function gameReset() {
+    setBoard(newBoard);
+    setActive(true);
+    setMessage(`it is ${turn}'s turn`);
+    setTurn('x');
+  }
 
-const useGameContext = () => {
+  return (
+    <GameContext.Provider value={ {
+      board,
+      turn,
+      active,
+      message,
+      handleClick,
+      gameReset
+    } }>
+      { children }
+    </GameContext.Provider>
+  );
+}
+
+export function useGameContext() {
   const context = useContext(GameContext);
+  if (context === undefined) {
+    throw new Error('please useGameContext only when within a provider');
+  }
   return context;
-};
-
-export { useGameContext, GameContextProvider };
-    
+}

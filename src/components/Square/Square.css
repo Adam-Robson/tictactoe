@@ -1,9 +1,0 @@
-.square {
-  font-size: 4rem;
-  height: 10rem;
-  width: 10rem;
-  background-color: var(--taupe);
-  color:var(--charcoal);
-  border: 1px var(--charcoal) solid;
-  
-}
