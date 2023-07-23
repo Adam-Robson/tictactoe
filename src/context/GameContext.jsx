@@ -104,7 +104,7 @@ export function GameContextProvider({ children }) {
     if (!active) return;
     const winner = checkWinner();
     if (winner) {
-      setMessage(`${winner} wins! 🗝️ please reset the game! ⇨ `);
+      setMessage(`${winner} wins! - reset ⇨ `);
       setActive(false);
     } else if (cat()) {
       setMessage('this was a cat\'s game!');
