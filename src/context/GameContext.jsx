@@ -21,7 +21,7 @@ export function GameContextProvider({ children }) {
       x.map(
         space => space.idx === i ?
           { idx: i, val: turn } : space));
-    
+
     setTurn(turn === 'x' ? 'o' : 'x');
     setMessage(turn === 'x' ? 'it is o\'s turn!' : 'it is x\'s turn!');
   }
@@ -45,49 +45,49 @@ export function GameContextProvider({ children }) {
       return board[5].val;
     } else if (
       board[6].val !== '' &&
-      board[6].val === 
+      board[6].val ===
       board[7].val &&
-      board[7].val === 
+      board[7].val ===
       board[8].val
     ) {
       return board[8].val;
     } else if (
       board[0].val !== '' &&
-      board[0].val === 
+      board[0].val ===
       board[3].val &&
-      board[3].val === 
+      board[3].val ===
       board[6].val
     ) {
       return board[6].val;
     } else if (
       board[1].val !== '' &&
-      board[1].val === 
+      board[1].val ===
       board[4].val &&
-      board[4].val === 
+      board[4].val ===
       board[7].val
     ) {
       return board[7].val;
     } else if (
       board[2].val !== '' &&
-      board[2].val === 
+      board[2].val ===
       board[5].val &&
-      board[5].val === 
+      board[5].val ===
       board[8].val
     ) {
       return board[8].val;
     } else if (
       board[0].val !== '' &&
-      board[0].val === 
+      board[0].val ===
       board[4].val &&
-      board[4].val === 
+      board[4].val ===
       board[8].val
     ) {
       return board[8].val;
     } else if (
       board[2].val !== '' &&
-      board[2].val === 
+      board[2].val ===
       board[4].val &&
-      board[4].val === 
+      board[4].val ===
       board[6].val
     ) {
       return board[6].val;
@@ -104,7 +104,7 @@ export function GameContextProvider({ children }) {
     if (!active) return;
     const winner = checkWinner();
     if (winner) {
-      setMessage(`${winner} wins! - reset ⇨ `);
+      setMessage(`${winner} wins! ⇨ `);
       setActive(false);
     } else if (cat()) {
       setMessage('this was a cat\'s game!');

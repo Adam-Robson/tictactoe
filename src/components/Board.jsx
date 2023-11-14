@@ -16,7 +16,9 @@ export default function Board() {
           <Square key={ idx } index={ idx } value={ val } />
         )) }
       </div>
-      { !active && <button onClick={ handleReset }>reset</button> }
+      <div className='reset-btn-container'>
+        {!active && <button className="reset-btn" onClick={handleReset}>reset</button>}
+      </div>
     </>
   );
 }
