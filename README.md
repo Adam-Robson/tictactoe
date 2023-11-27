@@ -10,7 +10,7 @@ game [Tic-Tac-Toe](https://en.wikipedia.org/wiki/Tic-tac-toe).
 
 ___
 
-> Live demo on Netlify [here](https://tictactoe-react-xoxo.netlify.app).
+Live demo on Netlify [here](https://tictactoe-react-xoxo.netlify.app).
 
 ___
 
@@ -34,7 +34,7 @@ at Alchemy Code Lab, in Portland, Oregon.
 
 ## Authors
 
-**[@Adam-Robson](https://www.github.com/Adam-Robson)**
+> [@Adam-Robson](https://www.github.com/Adam-Robson)
 
 
 ## Features
@@ -56,7 +56,7 @@ An exercise in tracking state with the React Context API.
 
 ## Run Locally
 
-The following steps will run the app in the development mode:
+The following steps will run the app in the *development* mode:
 
 1. Clone the project: ```$ git clone https://the-project```
 
