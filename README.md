@@ -8,7 +8,11 @@ This is an application built with [React](https://react.dev/), and bootstrapped 
 [Create React App](https://create-react-app.dev/).  It is a build of the classic 
 game [Tic-Tac-Toe](https://en.wikipedia.org/wiki/Tic-tac-toe).
 
+___
+
 > Live demo on Netlify [here](https://tictactoe-react-xoxo.netlify.app).
+
+___
 
 
 ## Table of Contents
