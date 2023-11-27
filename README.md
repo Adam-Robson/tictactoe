@@ -1,4 +1,4 @@
-# Tic-Tac-Toe-React-xoxo
+# TicTacToe-React-xoxo
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/95febbb9-544e-44f1-9b4d-86f9b42e765d/deploy-status)](https://app.netlify.com/sites/idyllic-tartufo-455969/deploys)
 
