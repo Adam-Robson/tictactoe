@@ -81,4 +81,4 @@ facilitating the existence of this humble game.
 ## Contact
 
 Feel free to reach out! I can be messaged through LinkedIn by 
-clicking on the badge above, or by emailing me [here](emailto:adamray312@gmail.com).
+clicking on the badge above, or by emailing me at adamray312@gmail.com
