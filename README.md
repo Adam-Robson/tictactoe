@@ -1,6 +1,8 @@
 # TicTacToe-React-xoxo
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/95febbb9-544e-44f1-9b4d-86f9b42e765d/deploy-status)](https://app.netlify.com/sites/idyllic-tartufo-455969/deploys)
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://adamrobson.vercel.app/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/adamrayrobson)
 
 This is an application built with [React](https://react.dev/), and bootstrapped with 
 [Create React App](https://create-react-app.dev/).  It is a build of the classic 
@@ -28,12 +30,12 @@ at Alchemy Code Lab, in Portland, Oregon.
 
 ## Authors
 
-- [@Adam-Robson](https://www.github.com/Adam-Robson)
+**[@Adam-Robson](https://www.github.com/Adam-Robson)**
 
 
 ## Features
 
-An exercise in tracking state with React's Context API.  
+An exercise in tracking state with the React Context API.  
 
 
 ## Technologies Used
