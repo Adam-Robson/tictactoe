@@ -1,4 +1,4 @@
-# TicTacToe-React-xoxo
+# TicTacToe-React
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/95febbb9-544e-44f1-9b4d-86f9b42e765d/deploy-status)](https://app.netlify.com/sites/tiktaktoeinreact/deploys)
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://adamrobson.vercel.app/)
